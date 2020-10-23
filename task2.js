@@ -34,20 +34,18 @@ function calc (base, segments) {
 	// Also add join finish points of the base segment
 	segJoined.push([base[1], base[1]]);
 
-	// start with first point of base segment
+	// Start with first point of base segment
 	let x = base[0];
-	let maxLen = 0;
+	let len = 0;
 
-	// Finding maximum length
+	// Total length calculation
 	for(let k = 0; k < segJoined.length; k++) {
-		let len = segJoined[k][0] - x;
-
-		if(len > maxLen) maxLen = len;
+		len += (segJoined[k][0] - x);
 
 		x = segJoined[k][1];
 	}
 
-	return maxLen;
+	return len;
 }
 
 //Example test
